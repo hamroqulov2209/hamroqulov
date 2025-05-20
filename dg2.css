@@ -1,0 +1,158 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #111;
+  overflow-x: hidden;
+}
+
+header {
+  height: 80px;
+  width: 100%;
+  background-color: #444;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  height: 80px;
+  margin: 0 auto;
+  position: relative;
+}
+
+nav h1 a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 34px;
+  font-weight: bold;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  transition: 0.4s ease;
+}
+
+nav ul li {
+  padding: 10px 20px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  position: relative;
+}
+
+nav ul li a::before {
+  content: '';
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  left: 0;
+  bottom: -5px;
+  background-color: #fff;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s;
+}
+
+nav ul li a:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Menu toggle checkbox */
+#check {
+  display: none;
+}
+
+#menu,
+#x {
+  position: absolute;
+  top: 50%;
+  right: 24px;
+  transform: translateY(-50%);
+  font-size: 44px;
+  color: #fff;
+  cursor: pointer;
+  display: none;
+  z-index: 101;
+}
+
+#x {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  nav ul {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 60%;
+    height: 100vh;
+    background-color: #000;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 99;
+    transition: right 0.4s;
+  }
+
+  nav ul li {
+    padding: 25px;
+    
+  }
+
+  #menu,
+  #x {
+    display: block;
+  }
+
+  #x{
+    display: none;
+  }
+  /* Menyuni ochish */
+  #check:checked ~ ul {
+    right: 0;
+  }
+
+  /* Menu icon ko‘rsatish */
+  #check:checked ~ label #menu {
+    display: none;
+  }
+
+  /* X icon ko‘rsatish */
+  #check:checked ~ label #x {
+    display: block;
+  }
+}
+
+/* Sektsiyalar */
+#s1, #s2 {
+  height: 100vh;
+}
+
+#s1 {
+  background-color: darkblue;
+}
+
+#s2 {
+  background-color: darkred;
+  transition: 0.4s;
+}
